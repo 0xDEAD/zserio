@@ -54,7 +54,7 @@
   <body>
     <h2>Zserio Package: ${rootPackageName}</h2>
     <ul id="all_packages" class="packagelist" onclick="showAllPackages(this);"><li>all packages</li></ul>
-    <ul class="packagelist"><li><a href="deprecated.html" title="Deprecated elements" target="detailedDocu">deprecated</a></li></ul>
+    <ul class="packagelist"><li><a onclick="loadContent('deprecated.html')" title="Deprecated elements" target="detailedDocu">deprecated</a></li></ul>
 <#list packages as pkg>
     <ul class="packagelist" onclick="showPackage(this);"><li>${pkg}</li></ul>
 </#list>

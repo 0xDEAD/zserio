@@ -1,21 +1,38 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script src="jquery.js"></script>
   </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <div id='packages' style="overflow:scroll; height:500px"></div>
+          <div id='overview' style="overflow:scroll; height:500px"></div>
+        </td>
+        <td valign=top>
+          <div id='content'></div>
+        </td>
+      </tr>
+    </table>
 
-  <frameset cols="20%,*">
-    <frameset rows="30%,70%">
-      <frame name="packages" src="packages.html" scrolling="auto" frameborder="0" />
-      <frame name="overview" src="overview.html" scrolling="auto" frameborder="1" />
-    </frameset>
-    <frame name="detailedDocu" src="" class="detailedDocu" scrolling="auto" frameborder="0" />
+    <script>
+      function loadContent(fileName)
+      {
+        $.get(fileName, function(data) {
+          $("#content").html(data);
+        }, "text");
+      }
 
-    <noframes>
-      <body>
-        <p>Ihr Browser kann leider keine Frames anzeigen!<br>
-        Your browser software can not handle framesets!</p>
-      </body>
-    </noframes>
-  </frameset>
+      $(document).ready(function(){
+        $.get('packages.html', function(data) {
+            $("#packages").html(data);
+        }, "text");
 
+        $.get('overview.html', function(data) {
+            $("#overview").html(data);
+        }, "text");
+      });
+    </script>
+  </body>
 </html>

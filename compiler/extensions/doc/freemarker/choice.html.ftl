@@ -6,7 +6,7 @@
 <html>
   <head>
     <title>${categoryPlainText} ${packageName}.${type.name}</title>
-    <link rel="stylesheet" type="text/css" href="../../webStyles.css">
+    <link rel="stylesheet" type="text/css" href="webStyles.css">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
   <body>
@@ -43,7 +43,7 @@
           <td valign="top" id="tabIndent">
         <#list caseMember.caseList as case>
             <a name="casedef_${case.expression}"></a>
-            <a href="#case_${case.expression}" class="fieldLink">case ${case.expression}</a>:<br/>
+            <a onclick="loadContent('#case_${case.expression}')" class="fieldLink">case ${case.expression}</a>:<br/>
         </#list>
           </td>
           <td colspan=3></td>
@@ -59,7 +59,7 @@
             <@linkedtype toLinkedType(caseMember.compoundField.fieldType)/><@arglist caseMember.compoundField/>
           </td>
           <td valign="bottom">
-            <a href="#${fname}" class="fieldLink">${fname}</a>${array}${opt}${c};
+            <a onclick="loadContent('#${fname}')" class="fieldLink">${fname}</a>${array}${opt}${c};
           </td>
     <#else>
           <td colspan=2>;</td>
@@ -69,7 +69,7 @@
 <#if choiceData.defaultMember??>
         <tr>
           <td valign="top" id="tabIndent">
-            <a href="#case_default" class="fieldLink">default</a>:<br/>
+            <a onclick="loadContent('#case_default')" class="fieldLink">default</a>:<br/>
           </td>
           <td colspan=3></td>
         </tr>
@@ -84,7 +84,7 @@
             <@linkedtype toLinkedType(choiceData.defaultMember.compoundField.fieldType)/><@arglist choiceData.defaultMember.compoundField/>
           </td>
           <td valign="bottom">
-            <a href="#${fname}" class="fieldLink">${fname}</a>${array}${opt}${c};
+            <a onclick="loadContent('#${fname}')" class="fieldLink">${fname}</a>${array}${opt}${c};
           </td>
     <#else>
           <td colspan=2>;</td>
@@ -131,7 +131,7 @@
                 <dd class="memberDetail">
                     <@doc_comment case.docComment/>
                     <#if case.seeLink??>
-                      <div class="docuTag"><span>see: </span><a href="${case.seeLink.link}">${case.seeLink.text}</a></div>
+                      <div class="docuTag"><span>see: </span><a onclick="loadContent('${case.seeLink.link}')">${case.seeLink.text}</a></div>
                     </#if>
                 </dd>
     </#list>

@@ -5,7 +5,7 @@
 <html>
   <head>
     <title>enum ${packageName}.${type.name}</title>
-    <link rel="stylesheet" type="text/css" href="../../webStyles.css">
+    <link rel="stylesheet" type="text/css" href="webStyles.css">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
   <body>
@@ -32,7 +32,7 @@
       <tr><td>{</td><td rowspan="${type.items?size+1}">&nbsp;</td><td></td></tr>
 <#list items as item>
           <tr>
-            <td id="tabIndent"><a href="#${item.name}" class="fieldLink">${item.name}</a></td>
+            <td id="tabIndent"><a onclick="loadContent('#${item.name}')" class="fieldLink">${item.name}</a></td>
             <td>= ${item.value}<#if item_has_next>,</#if></td>
       </tr>
 </#list>
@@ -50,7 +50,7 @@
       <@doc_comment item.docCommentData/>
   <#list item.usageInfoList as usageInfo>
     <#if usageInfo.isFromChoiceCase >
-        <div class="docuTag"><span>see: </span><a href="${usageInfo.choiceCaseLink}">${usageInfo.choiceCaseLinkText}</a></div>
+        <div class="docuTag"><span>see: </span><a onclick="loadContent('${usageInfo.choiceCaseLink}')">${usageInfo.choiceCaseLinkText}</a></div>
     </#if>
   </#list>
       </dd>

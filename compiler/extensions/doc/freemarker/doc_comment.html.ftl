@@ -11,7 +11,7 @@
         ${text}
                     </#list>
                     <#list paragraphText.tagSeeList as tagSee>
-        <a href="${tagSee.url}">${tagSee.alias}</a>
+        <a onclick="loadContent('${tagSee.url}')">${tagSee.alias}</a>
                     </#list>
                 </#list>
     </div>
@@ -28,7 +28,7 @@
 
             <#list paragraph.tagSeeList as tagSee>
     <div class="docuTag">
-        <span>See:</span> <a href="${tagSee.url}">${tagSee.alias}</a>
+        <span>See:</span> <a onclick=loadContent('${tagSee.url}')">${tagSee.alias}</a>
     </div>
             </#list>
 

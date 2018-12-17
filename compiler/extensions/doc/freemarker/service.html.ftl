@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>service ${packageName}.${name}</title>
-        <link rel="stylesheet" type="text/css" href="../../webStyles.css">
+        <link rel="stylesheet" type="text/css" href="webStyles.css">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     </head>
 
@@ -31,7 +31,7 @@
 <#list rpcList as rpc>
                 <tr><td id="tabIndent">
                     rpc <#if rpc.hasResponseStreaming>stream </#if><@linkedtype rpc.responseType/> <#rt>
-                    <a href="#${rpc.name}" class="fieldLink">${rpc.name}</a> <#t>
+                    <a onclick="loadContent('#${rpc.name}') class="fieldLink">${rpc.name}</a> <#t>
                     <#lt><#if rpc.hasRequestStreaming>stream </#if><@linkedtype rpc.requestType/>;
                 </td></tr>
 </#list>

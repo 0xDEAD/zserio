@@ -6,7 +6,7 @@
 <html>
   <head>
     <title>${categoryPlainText} ${packageName}.${type.name}</title>
-    <link rel="stylesheet" type="text/css" href="../../webStyles.css">
+    <link rel="stylesheet" type="text/css" href="webStyles.css">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   </head>
   <body>
@@ -63,7 +63,7 @@
           <td></td>
           <td valign="top" id="tabIndent"><@linkedtype field.type/><@arglist field/></td>
           <td valign="bottom">
-            <a href="#${fname}" class="fieldLink">${fname}</a>${array}${opt}${c};</td>
+            <a onclick="loadContent('#${fname}')" class="fieldLink">${fname}</a>${array}${opt}${c};</td>
           <td valign="bottom"><i>${sqlc}</i></td>
           <#if field.isVirtual>
             <td valign="bottom"><i>(virtual)</i></td>
